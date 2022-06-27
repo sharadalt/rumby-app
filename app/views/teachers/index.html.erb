@@ -1,0 +1,32 @@
+<h1>All Teachers</h1>
+
+<%# javascript 'pagination' %>
+<%#= will_paginate @products %>
+
+
+<table>
+  <tr>
+    <th><%= sortable "teacher_id"%></th>
+    <th><%= sortable "teacher_name"%></th>
+    <th><%= sortable "school_name"%></th>
+    <th><%= sortable "school_year"%></th>
+  </tr>
+  <% for teacher in @teachers %>
+    <tr>
+    	<td><%= teacher.teacher_id %></td>
+    	<td><%= teacher.teacher_name %></td>
+    	<td><%= teacher.school_name %></td>
+      <td><%= teacher.school_year %></td>
+    </tr>
+  <%end%>
+</table>
+
+
+<h4>Create New Teacher</h4>
+<p><%= link_to "new teacher", new_teacher_path %></p>
+
+
+
+
+
+
