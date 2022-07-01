@@ -1,2 +1,45 @@
-<h1>Teachers#show</h1>
-<p>Find me in app/views/teachers/show.html.erb</p>
+<div class="container">
+
+  <p id="notice"><%= notice %></p>
+
+  <p>
+    <strong>Teacher:</strong>
+    <%= @teacher.teacher_id %>
+  </p>
+
+  <p>
+    <strong>Teacher name:</strong>
+    <%= @teacher.teacher_name %>
+  </p>
+
+  <p>
+    <strong>School name:</strong>
+    <%= @teacher.school_name %>
+  </p>
+
+  <p>
+    <strong>School year:</strong>
+    <%= @teacher.school_year %>
+  </p>
+
+  <p>
+    <strong>Available schools: <%= @teacher.schools.count %>  </strong>
+  </p>
+  <% @teacher.schools.each do |sch|  %>
+    <p>
+      <%= sch.school_name %>
+   </p>
+  <% end %>
+
+  <p>
+    <strong>Available skool_years: <%= @teacher.skool_years.count %>  </strong>
+  </p>
+  <% @teacher.skool_years.each do |sk|  %>
+    <p>
+      <%= sk.year %>
+   </p>
+  <% end %>
+
+  <%= link_to 'Edit', edit_teacher_path(@teacher) %> |
+  <%= link_to 'Back', teachers_path %>
+</div>

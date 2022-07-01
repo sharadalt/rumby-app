@@ -67,7 +67,7 @@ Sort/paging methods done as a Concerns controller.""
 
 The columns can be sorted/reverse sorted by clicking on column header. (for this I referred and followed Rails cast on the web) The Sort methods are not done as concerns controller.
 
-First I used, will_paginate gem, then I commented and have put some methods in the concise directory. (I referred and followed a blog on the web) So by default the number of rows are 15. That can be changed 
+First I used, will_paginate gem, then I commented and have put some methods in the concerns directory. (I referred and followed a blog on the web) So by default the number of rows are 15. That can be changed 
 by changing the params.
 
 
@@ -78,4 +78,16 @@ The application to be made as a single page application (I had very weird proble
 I am not able to display multiple school_years and School_names. I am able to add them to teachers at the 
 console and in the test specs.
 
-Sorting methods are not in concise directory.
+Sorting methods are not in concerns directory.
+
+Updates with 2nd commit:
+========================
+I recreated the models using scaffold as the nested forms had problems and was finding it difficult to trace the problem. Affter scaffolding it was little easier.
+
+Currently sorting and pagination work and not from concerns directory.
+
+Adding/editing and deleting schools and skool_years work.
+
+
+
+

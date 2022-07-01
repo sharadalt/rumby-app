@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_26_214830) do
+ActiveRecord::Schema.define(version: 2022_06_30_183808) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,8 +22,8 @@ ActiveRecord::Schema.define(version: 2022_06_26_214830) do
   end
 
   create_table "schools_teachers", id: false, force: :cascade do |t|
-    t.bigint "teacher_id", null: false
     t.bigint "school_id", null: false
+    t.bigint "teacher_id", null: false
   end
 
   create_table "skool_years", force: :cascade do |t|
@@ -35,12 +35,12 @@ ActiveRecord::Schema.define(version: 2022_06_26_214830) do
   end
 
   create_table "teachers", force: :cascade do |t|
+    t.string "teacher_id"
     t.string "teacher_name"
     t.string "school_name"
     t.string "school_year"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "teacher_id"
   end
 
   add_foreign_key "skool_years", "teachers"

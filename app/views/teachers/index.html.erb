@@ -1,32 +1,37 @@
-<h1>All Teachers</h1>
 
-<%# javascript 'pagination' %>
-<%#= will_paginate @products %>
+  <p id="notice"><%= notice %></p>
+
+  <h1>Teachers</h1>
+
+<%= will_paginate @teachers %>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th><%= sortable "teacher_id"%></th>
+        <th><%= sortable "teacher_name"%></th>
+        <th><%= sortable "school_name" %></th>
+        <th><%= sortable "school_year"%></th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+  <tbody>
+      <% @teachers.each do |teacher| %>
+        <tr>
+          <td><%= teacher.teacher_id %></td>
+          <td><%= teacher.teacher_name %></td>
+          <td><%= teacher.school_name %></td>
+          <td><%= teacher.school_year %></td>
+          <td><%= link_to 'Show', teacher %></td>
+          <td><%= link_to 'Edit', edit_teacher_path(teacher) %></td>
+          <td><%= link_to 'Destroy', teacher, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+  </tbody>
+  </table>
+<br>
 
 
-<table>
-  <tr>
-    <th><%= sortable "teacher_id"%></th>
-    <th><%= sortable "teacher_name"%></th>
-    <th><%= sortable "school_name"%></th>
-    <th><%= sortable "school_year"%></th>
-  </tr>
-  <% for teacher in @teachers %>
-    <tr>
-    	<td><%= teacher.teacher_id %></td>
-    	<td><%= teacher.teacher_name %></td>
-    	<td><%= teacher.school_name %></td>
-      <td><%= teacher.school_year %></td>
-    </tr>
-  <%end%>
-</table>
 
-
-<h4>Create New Teacher</h4>
-<p><%= link_to "new teacher", new_teacher_path %></p>
-
-
-
-
-
-
+<%= link_to 'New Teacher', new_teacher_path %>

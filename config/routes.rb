@@ -1,4 +1,15 @@
 Rails.application.routes.draw do
+  resources :schools
+  resources :skool_years
+  resources :teachers
+  # get 'schools/index'
+  # get 'schools/show'
+  # get 'schools/new'
+  # get 'schools/edit'
+  # get 'skool_years/index'
+  # get 'skool_years/show'
+  # get 'skool_years/new'
+  # get 'skool_years/edit'
   # get 'teachers/index'
   # get 'teachers/show'
   # get 'teachers/new'
@@ -8,7 +19,7 @@ Rails.application.routes.draw do
   # get 'teacher/new'
   # get 'teacher/edit'
 
-  resources :teachers
+  
   # get 'welcome/index'
   # get 'welcome/about'
 

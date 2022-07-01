@@ -11,12 +11,16 @@
   </head>
 
   <body>
+  <nav class="navbar navbar">
     <div class="container">
+      <div class="jumbotron">
       <ul class="nav nav-tabs">
         <li><%= link_to "About", about_path %></li>
         <li><%= link_to "Home", root_path %></li>
       </ul>
       <%= yield %>
     </div>
-  </body>
+  </div>
+  </nav>
+</body>
 </html>

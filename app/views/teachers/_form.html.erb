@@ -1,0 +1,57 @@
+<%= form_for @teacher do |form| %>
+  <% if teacher.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(teacher.errors.count, "error") %> prohibited this teacher from being saved:</h2>
+
+      <ul>
+        <% teacher.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :teacher_name %>
+    <%= form.text_field :teacher_name %>
+  </div>
+
+  <div class="field">
+    <h3>create a new School:</h3>
+    <%= form.fields_for (:schools) do |f|%>
+       <% render 'school_fields', f: f %>
+    <% end %>
+    <%= link_to_add_fields "Add school", form, :schools %>
+  </div>
+
+  <div class="field">
+    <h3>create a new skool_year:</h3>
+    <%= form.fields_for (:skool_years) do |f|%>
+       <% render 'skool_year_fields', f: f %>
+    <% end %>
+    <%= link_to_add_fields "Add skool_year", form, :skool_years %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+
+  <script>
+    $('form').on('click', '.remove-fields', function(event) {
+    console.log('clicked')
+    $(this).prev('input[type=hidden]').val('1');
+    $(this).closest('fieldset').hide();
+    return event.preventDefault();
+  });
+
+$('form').on('click', '.add_fields', function(event) {
+    console.log('clicked!')
+     var regexp, time;
+     time = new Date().getTime();
+     regexp = new RegExp($(this).data('id'), 'g');
+     $(this).before($(this).data('fields').replace(regexp, time));
+     return event.preventDefault();
+    });
+      
+  </script>
+<% end %>
