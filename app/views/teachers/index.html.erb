@@ -1,11 +1,12 @@
 
+
   <p id="notice"><%= notice %></p>
 
   <h1>Teachers</h1>
 
 <%= will_paginate @teachers %>
 
-  <table class="table table-bordered">
+  <table class="table table-striped, table-bordered">
     <thead>
       <tr>
         <th><%= sortable "teacher_id"%></th>
@@ -24,8 +25,8 @@
           <td><%= teacher.school_name %></td>
           <td><%= teacher.school_year %></td>
           <td><%= link_to 'Show', teacher %></td>
-          <td><%= link_to 'Edit', edit_teacher_path(teacher) %></td>
-          <td><%= link_to 'Destroy', teacher, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Edit', edit_teacher_path(teacher)%></td>
+          <td><%= link_to 'Destroy', teacher, method: :delete, data: { confirm: 'Are you sure?' }, :class=>'delete_teacher' %></td>
         </tr>
       <% end %>
   </tbody>
@@ -34,4 +35,4 @@
 
 
 
-<%= link_to 'New Teacher', new_teacher_path %>
+<%= link_to 'New Teacher', new_teacher_path, class: "new-teacher-button"%>

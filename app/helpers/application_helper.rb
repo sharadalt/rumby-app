@@ -1,11 +1,5 @@
 module ApplicationHelper
-	def sortable(column,title = nil)
-	  title ||= column.titleize
-    #css_class = column == sort_column ? "current #{sort_direction}" : nil
-    direction = column == sort_column() && sort_direction == "asc" ? "desc" : "asc"
-    link_to title, :sort => column, :direction => direction
-  end
-
+	
   def link_to_add_fields(name, f, association)
   	# create a new object from the association
   	new_object = f.object.send(association).klass.new

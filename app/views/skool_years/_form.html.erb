@@ -1,4 +1,4 @@
-<%= form_with(model: skool_year) do |form| %>
+<%= form_for @skool_year do |form| %>
   <% if skool_year.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(skool_year.errors.count, "error") %> prohibited this skool_year from being saved:</h2>

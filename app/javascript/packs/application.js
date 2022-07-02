@@ -14,13 +14,25 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-
+require("jquery")
 require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
-require("jquery")
+
+global.$ = jQuery;
 
 
-//= require jquery
-//= require jquery_ujs
+//require("@rails/ujs") //.start()
+//require("turbolinks").start()
+//require("@rails/activestorage").start()
+//require('jquery').start()
+//require('jquery_ujs').start()
+//require('bootstrap-daterangepicker').start()
+//require("custom/custom").start()
+//require("bootstrap").start()
+//require("channels")
+
+//import Rails from '@rails/ujs';
+Rails.start();
+

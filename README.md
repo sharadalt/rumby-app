@@ -89,5 +89,18 @@ Currently sorting and pagination work and not from concerns directory.
 Adding/editing and deleting schools and skool_years work.
 
 
+Updates with 3rd commit:
+========================
+Sorting methods are put in the concerns directory.
+For pagination, we can provide the per page value as params. If no value provided in params then it will default
+to 15. 
+
+What is still missing?
+
+1.I could not convert it into single page application. I tried it using jQuery and Ajax. It worked to some extent but not fully. So I reverted back. This took a lot of time.
+2.I did not start with HAML. Not familiar with it. I did not convert erb to HAML. I tried it on a different code base, using 'haml-rails' gem. It looked like it worked. I wasn't sure, so I did not convert it. But I can pick it up.
+3.More testing needed.
+
+
 
 

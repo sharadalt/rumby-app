@@ -1,5 +1,6 @@
+#import Rails from '@rails/ujs';
 class SchoolsController < ApplicationController
-  
+
   before_action :set_school, only: %i[ show edit update destroy ]
 
   # GET /schools or /schools.json

@@ -1,3 +1,4 @@
+#import Rails from '@rails/ujs';
 class SkoolYearsController < ApplicationController
   before_action :set_skool_year, only: %i[ show edit update destroy ]
 

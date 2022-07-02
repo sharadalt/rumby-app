@@ -19,7 +19,7 @@
   <div class="field">
     <h3>create a new School:</h3>
     <%= form.fields_for (:schools) do |f|%>
-       <% render 'school_fields', f: f %>
+       <% render 'school_fields', f: f%>
     <% end %>
     <%= link_to_add_fields "Add school", form, :schools %>
   </div>
@@ -27,9 +27,9 @@
   <div class="field">
     <h3>create a new skool_year:</h3>
     <%= form.fields_for (:skool_years) do |f|%>
-       <% render 'skool_year_fields', f: f %>
+       <% render 'skool_year_fields', f: f%>
     <% end %>
-    <%= link_to_add_fields "Add skool_year", form, :skool_years %>
+    <%= link_to_add_fields "Add skool_year", form, :skool_years%>
   </div>
 
   <div class="actions">

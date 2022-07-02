@@ -1,5 +1,6 @@
-class TeachersController < ApplicationController
+include Sorting
 
+class TeachersController < ApplicationController
   before_action :set_teacher, only: %i[ show edit update destroy ]
   helper_method :sort_column, :sort_direction
 
@@ -8,7 +9,8 @@ class TeachersController < ApplicationController
     #@teachers = Teacher.order(sort_column + " " + sort_direction).paginate(params[:page]).per_page(15)
     #@teachers = Teacher.order(sort_column + " " + sort_direction).paginate(params[:page]).per_page(15)
   
-    @teachers = Teacher.order(sort_column + " " + sort_direction).paginate(:per_page => 15, :page => params[:page])
+    @teachers = Teacher.order(sort_column + " " + sort_direction).paginate(:per_page => params[:per_page] || 15, :page => params[:page])
+    
   end
 
   # GET /teachers/1 or /teachers/1.json
@@ -40,7 +42,7 @@ class TeachersController < ApplicationController
            @teacher.school_year = ""
            @teacher.skool_years.each {|yr| @teacher.school_year << yr.year << " ,";}
            @teacher.save
-           puts "skool_yrs = #{@teacher.skool_years.count}"
+           #puts "skool_yrs = #{@teacher.skool_years.count}"
            #puts "skool_yr = #{@teacher.skool_years.first.year}"
         end
         
@@ -49,7 +51,7 @@ class TeachersController < ApplicationController
            @teacher.school_name = ""
            @teacher.schools.each {|sk| @teacher.school_name << sk.school_name << " ,";}
            @teacher.save
-           puts "schools = #{@teacher.schools.count}"
+           #puts "schools = #{@teacher.schools.count}"
            #puts "skool_yr = #{@teacher.skool_years.first.year}"
         end
 
@@ -97,12 +99,4 @@ class TeachersController < ApplicationController
       #params.require(:teacher).permit(:teacher_id, :teacher_name, [school_ids: []], skool_years_attributes: [:id, :year,:_destroy])
     end
 
-    def sort_column
-    Teacher.column_names.include?(params[:sort]) ? params[:sort] : "teacher_id"
-    #class_name.column_names.include?(params[:sort]) ? params[:sort] : attribute_name
-    end
-  
-    def sort_direction
-      %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
-    end
 end

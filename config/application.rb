@@ -34,5 +34,6 @@ module RumbyApp
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+    #config.action_view.JavaScript_expansions[:defaults] = %w(jquery rails application)
   end
 end
