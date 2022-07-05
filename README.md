@@ -2,6 +2,7 @@
 
 Ruby Version: '2.5.3'
 Rails Version:  '6.1.6'
+node Version : v16.14.2
 postgres_database for development:  rumby_development
 postgres_database user for development:  postgres
 postgres_database password for development:  Mypassword
